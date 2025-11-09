@@ -6,6 +6,7 @@ const members = {
   orca: "1205841297",
   sailor: "8058693881",
   nilesh: "2096377389",
+  anamika: "869217433",
 };
 
 const every11PM = "0 23 * * *"; // At 11:00 PM every day
@@ -44,11 +45,11 @@ function capitalize(str: string) {
 }
 
 // --- Cron job: runs every day at 11 PM ---
-cron.schedule(every11PM, async () => {
+cron.schedule(testEvery2Seconds, async () => {
   console.log("Cron job triggered at 11 PM!");
 
   const mentions = await getMentions(bot);
-  const message = `⏰ Hey ${mentions}\n\nIt's time to tell what you did today towards your goals! ✨`;
+  const message = `⏰ Hey ${mentions}\n\nIt's time to tell what you did today towards your goals! ✨\n\nWhat did you get done today? What are your goals for tomorrow?\nAnything else you must share?`;
 
   try {
     // Send to yourself or group
@@ -60,3 +61,6 @@ cron.schedule(every11PM, async () => {
     console.error("❌ Failed to send message:", err);
   }
 });
+
+console.log("✅ Bot launched successfully and waiting for cron jobs...");
+// setInterval(() => {}, 60 * 60 * 1000); // 1 hour interval, keeps process alive quietly
