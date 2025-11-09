@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@grammyjs/types": "^3.22.2",
+    "dotenv": "^17.2.3",
+    "grammy": "^1.38.3",
+    "node-cron": "^4.2.1"
+  }
+}
