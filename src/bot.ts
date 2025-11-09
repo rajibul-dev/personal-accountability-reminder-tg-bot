@@ -45,7 +45,7 @@ function capitalize(str: string) {
 }
 
 // --- Cron job: runs every day at 11 PM ---
-cron.schedule(testEvery2Seconds, async () => {
+cron.schedule(every11PM, async () => {
   console.log("Cron job triggered at 11 PM!");
 
   const mentions = await getMentions(bot);
@@ -63,4 +63,4 @@ cron.schedule(testEvery2Seconds, async () => {
 });
 
 console.log("✅ Bot launched successfully and waiting for cron jobs...");
-// setInterval(() => {}, 60 * 60 * 1000); // 1 hour interval, keeps process alive quietly
+setInterval(() => {}, 60 * 60 * 1000); // 1 hour interval, keeps process alive quietly
