@@ -43,9 +43,9 @@ function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// --- Cron job: runs every day at 11 AM ---
-cron.schedule(testEvery2Seconds, async () => {
-  console.log("Cron job triggered at 11 AM!");
+// --- Cron job: runs every day at 11 PM ---
+cron.schedule(every11PM, async () => {
+  console.log("Cron job triggered at 11 PM!");
 
   const mentions = await getMentions(bot);
   const message = `⏰ Hey ${mentions}\n\nIt's time to tell what you did today towards your goals! ✨`;
