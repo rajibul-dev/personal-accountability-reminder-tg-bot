@@ -6,10 +6,10 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
+    "typescript": "^5.9.3",
     "@grammyjs/types": "^3.22.2",
     "dotenv": "^17.2.3",
     "grammy": "^1.38.3",
