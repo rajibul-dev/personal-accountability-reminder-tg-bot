@@ -1,20 +1,26 @@
-# fly.toml app configuration file generated for personal-accountability-reminder-tg-bot on 2025-11-09T14:28:34+05:30
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# fly.toml app configuration file for personal-accountability-reminder-tg-bot
 
 app = 'personal-accountability-reminder-tg-bot'
 primary_region = 'bom'
 
 [build]
 
+[env]
+  NODE_ENV = "production"
+  TZ = "Asia/Kolkata"
+
+# optional: remove http_service since you're not using a web port
 [http_service]
   internal_port = 3000
   force_https = true
-  auto_stop_machines = 'stop'
-  auto_start_machines = true
-  min_machines_running = 0
+  auto_stop_machines = false  # 🚫 don't auto-suspend, we need cron alive
+  auto_start_machines = true  # can stay true, harmless
+  min_machines_running = 1    # ✅ always keep 1 running
   processes = ['app']
 
 [[vm]]
   size = 'shared-cpu-1x'
+
+[deploy]
+  strategy = "immediate"       # 🚀 prevents spawning 2 machines
+  min_machines_running = 1     # ✅ ensures exactly 1 stays up
