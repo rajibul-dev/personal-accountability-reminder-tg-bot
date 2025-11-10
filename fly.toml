@@ -8,6 +8,14 @@ primary_region = "bom"
 [[vm]]
   size = "shared-cpu-1x"
 
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false   # 🚫 don’t let it sleep
+  auto_start_machines = true
+  min_machines_running = 1     # ✅ ensure 1 is always awake
+  processes = ["app"]
+
 [deploy]
   min_machines_running = 1
   strategy = "immediate"
