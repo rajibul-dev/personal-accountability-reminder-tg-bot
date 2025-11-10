@@ -20,6 +20,8 @@ The idea is simple:
 
 - **Daily 11 PM Reminder** — prompts everyone to report what they did toward their goals.
 - **Dynamic Mentions** — automatically fetches and tags each member’s real Telegram name.
+- **/run Endpoint** — allows external cron services (like [cron-job.org](https://cron-job.org)) to trigger reminders reliably.
+- **/test Endpoint** — instantly sends a test message to verify deployment.
 - **Customizable Cron Schedule** — easily change reminder time in the code.
 - **Lightweight Deployment** — works perfectly on [Fly.io](https://fly.io) or any always-on Node environment.
 
@@ -28,6 +30,7 @@ The idea is simple:
 ## 🧠 Tech Stack
 
 - [Grammy.js](https://grammy.dev) — modern Telegram Bot framework
+- [Express.js](https://expressjs.com) — lightweight web server for custom routes
 - [node-cron](https://github.com/node-cron/node-cron) — reliable scheduling
 - [TypeScript](https://www.typescriptlang.org/) — for type safety and clean structure
 
