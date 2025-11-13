@@ -60,11 +60,6 @@ async function sendReminder() {
   }
 }
 
-// --- Optional: node-cron fallback (disabled for now) ---
-// import cron from "node-cron";
-// const every11PM = "0 23 * * *";
-// cron.schedule(every11PM, sendReminder);
-
 // --- Express Web Server ---
 const app = express();
 
@@ -72,7 +67,7 @@ app.get("/", (_, res) => {
   res.send("✅ Telegram Accountability Bot is running!");
 });
 
-// Manual trigger endpoint (for cron-job.org, etc.)
+// trigger endpoint (for cron-job.org)
 app.get("/run", async (_, res) => {
   await sendReminder();
   res.send("✅ Reminder executed successfully!");

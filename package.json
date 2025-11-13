@@ -14,7 +14,6 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "grammy": "^1.38.3",
-    "node-cron": "^4.2.1",
     "typescript": "^5.9.3"
   }
 }
