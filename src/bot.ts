@@ -11,6 +11,7 @@ const wayToWisdomGroupID = "-1001506949302";
 const members = {
   raji: "1064047434",
   orca: "1205841297",
+  SV: "7259733372",
   sailor: "8058693881",
   nilesh: "2096377389",
   anamika: "869217433",
