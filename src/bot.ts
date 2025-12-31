@@ -7,6 +7,9 @@ const { Bot } = require("grammy");
 
 // --- IDs and Members ---
 const wayToWisdomGroupID = "-1001506949302";
+const dedicatedAccountabilityGroupID = "-1003577560502";
+
+const groups = [wayToWisdomGroupID, dedicatedAccountabilityGroupID];
 
 const members = {
   raji: "1064047434",
@@ -46,14 +49,14 @@ function capitalize(str: string) {
 }
 
 // --- Send Reminder Function ---
-async function sendReminder() {
+async function sendReminder(groupId: string) {
   console.log("🚀 Triggering reminder...");
 
   const mentions = await getMentions(bot);
   const message = `⏰ Hey ${mentions}\n\nIt's time to tell what you did today towards your goals! ✨\n\nWhat did you get done today? What are your goals for tomorrow?\nAnything else you must share?`;
 
   try {
-    await bot.api.sendMessage(wayToWisdomGroupID, message, {
+    await bot.api.sendMessage(groupId, message, {
       parse_mode: "Markdown",
     });
     console.log("✅ Reminder sent successfully!");
@@ -71,10 +74,16 @@ app.get("/", (_, res) => {
 
 // trigger endpoint (for cron-job.org)
 app.get("/run", async (_, res) => {
-  await sendReminder();
-  res.send("✅ Reminder executed successfully!");
+  try {
+    await Promise.all(groups.map((groupId) => sendReminder(groupId)));
+    res.send("✅ Reminder executed successfully!");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("❌ Failed to execute reminders");
+  }
 });
 
+// test endpoint to verify bot functionality
 app.get("/test", async (_, res) => {
   try {
     await bot.api.sendMessage(
