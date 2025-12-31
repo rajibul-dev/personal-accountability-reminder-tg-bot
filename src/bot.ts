@@ -74,10 +74,13 @@ app.get("/", (_, res) => {
 
 // trigger endpoint (for cron-job.org)
 app.get("/run", async (_, res) => {
-  groups.forEach(async (groupId) => {
-    await sendReminder(groupId);
-  });
-  res.send("✅ Reminder executed successfully!");
+  try {
+    await Promise.all(groups.map((groupId) => sendReminder(groupId)));
+    res.send("✅ Reminder executed successfully!");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("❌ Failed to execute reminders");
+  }
 });
 
 app.get("/test", async (_, res) => {
