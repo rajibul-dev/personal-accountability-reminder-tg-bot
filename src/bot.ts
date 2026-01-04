@@ -9,7 +9,7 @@ const { Bot } = require("grammy");
 const wayToWisdomGroupID = "-1001506949302";
 const dedicatedAccountabilityGroupID = "-1003577560502";
 
-const groups = [wayToWisdomGroupID, dedicatedAccountabilityGroupID];
+const groups = [dedicatedAccountabilityGroupID];
 
 const members = {
   raji: "1064047434",
