@@ -20,6 +20,7 @@ const members = {
   anamika: "869217433",
   sailor: "8058693881",
   manoj: "1139130113",
+  shivanshu: "5169894955",
 };
 
 // --- Initialize Bot ---
