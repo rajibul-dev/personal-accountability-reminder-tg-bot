@@ -1,46 +1,29 @@
-# Way to Wisdom — Telegram Accountability Reminder Bot
+# Telegram Accountability Reminder Bot
 
-A simple personal Telegram tool built to help **accountability partners** stay consistent with their goals.  
-Every night at **11 PM (IST)**, the bot sends a friendly reminder in the group — asking everyone to share what they worked on that day toward their goals. ✨
+Small Telegram bot that posts a daily accountability reminder in a group chat.
 
----
+Built as a personal tool for a small group to report daily progress toward their goals.
 
-## 🌱 Purpose
+## Stack
 
-This project was made as a small, personal automation to keep a few friends accountable.  
-The idea is simple:
+- Node.js
+- TypeScript
+- Express
+- Grammy (Telegram Bot API)
 
-- Stay aware of daily progress
-- Encourage honesty and reflection
-- Keep each other motivated to move forward
+## How it works
 
----
+The bot runs a small Express server and exposes endpoints:
 
-## ⚙️ Features
-
-- **Daily 11 PM Reminder** — prompts everyone to report what they did toward their goals.
-- **Dynamic Mentions** — automatically fetches and tags each member’s real Telegram name.
-- **/run Endpoint** — allows external cron services (like [cron-job.org](https://cron-job.org)) to trigger reminders reliably.
-- **/test Endpoint** — instantly sends a test message to verify deployment.
-- **Customizable Cron Schedule** — easily change reminder time in the code.
-- **Lightweight Deployment** — works perfectly on [Fly.io](https://fly.io) or any always-on Node environment.
-
----
-
-## 🧠 Tech Stack
-
-- [Grammy.js](https://grammy.dev) — modern Telegram Bot framework
-- [Express.js](https://expressjs.com) — lightweight web server for custom routes
-- [node-cron](https://github.com/node-cron/node-cron) — reliable scheduling
-- [TypeScript](https://www.typescriptlang.org/) — for type safety and clean structure
-
----
-
-## 🚀 Setup & Deployment
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/rajibul-dev/personal-accountability-reminder-tg-bot.git
-cd personal-accountability-reminder-tg-bot
 ```
+GET /run → triggers reminder message
+GET /test → sends a test message
+GET / → health check
+```
+
+A cron service can call `/run` to trigger the reminder automatically.
+
+## Deployment
+
+Designed to run on any lightweight Node environment
+(e.g. Fly.io, Render, Railway).
