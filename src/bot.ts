@@ -14,13 +14,14 @@ const groups = [dedicatedAccountabilityGroupID];
 
 const members = {
   raji: "1064047434",
+  nilesh: "2096377389",
+  anamika: "869217433",
   orca: "1205841297",
   orca2: "7566813106",
   SV: "7259733372",
-  nilesh: "2096377389",
-  anamika: "869217433",
-  sailor: "8058693881",
   manoj: "1139130113",
+  haku: "1142759195",
+  sailor: "8058693881",
 };
 
 // --- Initialize Bot ---
