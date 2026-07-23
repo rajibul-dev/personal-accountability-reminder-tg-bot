@@ -22,6 +22,7 @@ const members = {
   manoj: "1139130113",
   haku: "1142759195",
   sailor: "8058693881",
+  soumil: "7416165741",
 };
 
 // --- Initialize Bot ---
